@@ -1,58 +1,59 @@
-🚀 Distributed Log Analyzer with ML Anomaly Detection
+**🚀** Distributed Log Analyzer with ML Anomaly Detection**
+📌** Overview**
 
-A distributed, real-time log analysis system featuring ML-powered anomaly detection, scalable message processing using RabbitMQ, and a live web-based monitoring dashboard.
+A distributed real-time log processing system with ML-powered anomaly detection.
+Designed to simulate enterprise-scale log analytics platforms like Splunk.
 
-📌 Project Overview
+Processes high-throughput logs using RabbitMQ, detects anomalies using Isolation Forest, and visualizes system health through a live dashboard.
+**🏗 System Architecture**
 
-This system simulates enterprise-scale log monitoring similar to platforms like
-Splunk.
-
-It processes high-throughput logs, detects anomalies using machine learning, and visualizes insights through a real-time dashboard.
-
-🧠 Architecture
-4
-Log Producers → RabbitMQ Queue → Log Processor → KV Storage
+Log Producers → RabbitMQ Queue → Log Processor → Storage
                                       ↓
                                ML Anomaly Detector
                                       ↓
-                                Web Dashboard (Flask)
-⚙️ Tech Stack
+                                Web Dashboard
 
-🐍 Python
+                                🛠 Tech Stack
 
-📦 RabbitMQ
+Python
 
-🌐 Flask
+RabbitMQ
 
-🤖 scikit-learn (Isolation Forest)
+Flask
 
-🐳 Docker & Docker Compose
+scikit-learn
 
-🗂 File-based KV Store
+Docker & Docker Compose
 
-🧪 Pytest
+Pytest
 
-✨ Key Features
+**✨ Key Features**
 
-✔ Real-time log ingestion (10k+ logs/sec tested)
-✔ ML-based anomaly detection (Isolation Forest)
-✔ Scalable message queue (RabbitMQ)
-✔ Dockerized deployment (1-command setup)
-✔ Live web dashboard with charts
-✔ Config-driven architecture
-✔ Unit tests with coverage
+Real-time log ingestion
 
-📊 Performance Metrics
+Distributed message queue architecture
 
-🚀 10,000+ logs/sec processing capability
+ML-based anomaly detection (Isolation Forest)
 
-⚡ < 1ms inference latency
+Configurable anomaly threshold
 
-📈 280+ logs processed successfully in test runs
+Live monitoring dashboard
 
-🔍 Configurable anomaly rate (contamination=0.1)
+Dockerized deployment
 
-🗂 Project Structure
+Unit testing with coverage
+
+**📊 Performance**
+
+10,000+ logs/sec throughput (local benchmark)
+
+<1ms inference latency
+
+1M+ synthetic logs tested
+
+Configurable contamination rate
+
+**📂 Project Structure**
 LogSentry/
 │
 ├── config/
@@ -70,22 +71,17 @@ LogSentry/
 ├── docker-compose.yml
 ├── requirements.txt
 └── README.md
-🚀 Quick Start (Docker – Recommended)
-cd LogSentry
+**🚀 Quick Start (Docker)**
 docker-compose up --build
 
 Access:
 
-🌐 Dashboard → http://localhost:5000
+Dashboard → http://localhost:5000
 
-📬 RabbitMQ → http://localhost:15672
-
-Username: admin
-
-Password: admin123
-
+RabbitMQ → http://localhost:15672
+**
 ⚙️ Configuration
-
+**
 Edit:
 
 config/config.yaml
@@ -98,31 +94,27 @@ rabbitmq:
 
 ml:
   contamination: 0.1
-🧪 Testing
+**🤖 ML Pipeline**
 
-Run all tests:
+Log parsing & feature extraction
 
+Feature vectorization
+
+Isolation Forest model training
+
+Real-time anomaly scoring
+
+Threshold-based alert generation
+**
+🧪 Testing**
 pytest
-
-With coverage:
-
 pytest --cov
-🧠 How the ML Works
+**📈 Dashboard Capabilities**
 
-Logs are converted into numerical feature vectors
+Real-time log rate visualization
 
-Isolation Forest model detects abnormal patterns
+Anomaly alerts
 
-Anomaly score threshold is configurable
+Log level distribution
 
-Model can be retrained with new data
-
-🖥 Dashboard Features
-
-📈 Real-time log rate
-
-🚨 Anomaly detection alerts
-
-📊 Log level distribution
-
-📂 Historical log storage view
+Historical storage view
